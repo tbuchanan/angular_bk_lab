@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-before_action :set_book, exclude: [:index, :create]
+before_action :set_book, only: [:show, :update, :destroy]
 respond_to :json
 
   def index
