@@ -15,12 +15,12 @@ Book App
     <!-- this is where you should put your edit form -->
     
       <span ng-hide="editing" ng-click="editing = true"><button>Edit</button></span>
-      <form ng-show="editing" ng-submit="editing = false">
+      <form ng-show="editing" ng-submit="editBook()">
         <input type="text" ng-model="book.title" placeholder="Title">
         <input type="text" ng-model="book.author" placeholder="Author">
         <input type="text" ng-model="book.description" placeholder="Description">
         <input type="text" ng-model="book.isbn" placeholder="ISBN">
-        <button ng-click="editBook()">Save Update</button>
+        <button>Save Update</button>
       </form>
     
     <!-- use ng-show to toggle on/off with a button -->

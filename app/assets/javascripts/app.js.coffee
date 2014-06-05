@@ -8,9 +8,6 @@ BookApp.controller("BooksCtrl", ["$scope", "$http", ($scope, $http)->
     $scope.books = data
 
   $scope.addBook = ->
-    # for testing:
-    # console.log "pushed the addBook button"
-    # console.log $scope.newBook
     $http.post("/books.json", $scope.newBook).success (data)->
       console.log "Book is saved!"
       $scope.books.push(data)
@@ -18,6 +15,7 @@ BookApp.controller("BooksCtrl", ["$scope", "$http", ($scope, $http)->
 
   $scope.editBook = ->
     $http.put("/books/#{@book.id}.json", @book).success (data)=>
+      @editing = !@editing
       console.log "Book is edited!"
       
   $scope.deleteBook = ->
@@ -26,8 +24,6 @@ BookApp.controller("BooksCtrl", ["$scope", "$http", ($scope, $http)->
     $http.delete("/books/#{@book.id}.json").success (data)=>
     $scope.books.splice(index, 1)
   ])    
-
-  
 
 # boilerplate code below
 BookApp.config(["$httpProvider", ($httpProvider) ->
