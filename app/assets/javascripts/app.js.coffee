@@ -16,6 +16,13 @@ BookApp.controller("BooksCtrl", ["$scope", "$http", ($scope, $http)->
       $scope.books.push(data)
       $scope.newBook = {}
 
+  $scope.editBook = ->
+    $http.put("/books/#{@book.id}.json", @book).success (data)=>
+      console.log "Book is edited!"
+      $scope.books.push(data)
+      $scope.editBook = {}
+      
+
   $scope.deleteBook = ->
     console.log @book
     index = @$index

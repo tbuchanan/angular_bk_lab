@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-before_action :set_book, only: [:show, :update, :destroy]
+before_action :set_book, only: [:edit, :show, :update, :destroy]
 respond_to :json
 
   def index
@@ -9,6 +9,10 @@ respond_to :json
   
   def create
     respond_with Book.create(book_params)
+  end
+
+  def edit
+    respond_with @book
   end
 
   def show
