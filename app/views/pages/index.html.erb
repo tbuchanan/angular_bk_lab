@@ -10,6 +10,7 @@ Book App
     <button>Add Book</button>
   </form>
     
+
   <ul ng-repeat="book in books">
     <!-- this is where you should put your edit form -->
     
@@ -19,7 +20,7 @@ Book App
         <input type="text" ng-model="book.author" placeholder="Author">
         <input type="text" ng-model="book.description" placeholder="Description">
         <input type="text" ng-model="book.isbn" placeholder="ISBN">
-        <button ng-submit="editBook()">Save Update</button>
+        <button ng-click="editBook()">Save Update</button>
       </form>
     
     <!-- use ng-show to toggle on/off with a button -->
